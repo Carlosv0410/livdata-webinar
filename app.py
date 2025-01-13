@@ -107,7 +107,7 @@ elif option == "Visualización Gráfica":
                 color="Region", 
                 title="Variabilidad de Ganancias por Región"
             )
-            st.write(fig_box, use_container_width=True)
+            st.write(fig_box)
 
         # Heatmap
         with advanced_tabs[1]:
