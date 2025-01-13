@@ -1,18 +1,21 @@
 import streamlit as st
 import plotly.express as px
 import pandas as pd
+import numpy as np
 
 # Configuración inicial
 st.set_page_config(page_title="Dashboard Interactivo", layout="wide")
 
 # Crear datos de ejemplo para los gráficos
+np.random.seed(42)
 data = {
-    "Product": ["Producto A", "Producto B", "Producto C", "Producto D"],
-    "Region": ["Norte", "Sur", "Este", "Oeste"],
-    "Sales": [3128, 3033, 3375, 3138],
-    "Discount": [16.89, 18.11, 20.65, 20.29],
-    "Profit": [1104, 1260, 1027, 983],
-    "Quantity": [50, 60, 55, 65]
+    'Date': pd.date_range(start='2023-01-01', periods=100),
+    'Product': np.random.choice(['Producto A', 'Producto B', 'Producto C', 'Producto D'], 100),
+    'Region': np.random.choice(['Norte', 'Sur', 'Este', 'Oeste'], 100),
+    'Sales': np.random.randint(1000, 5000, 100),
+    'Discount': np.random.uniform(5, 30, 100).round(2),  # Porcentaje de descuento
+    'Profit': np.random.randint(200, 2000, 100),
+    'Quantity': np.random.randint(1, 20, 100)
 }
 
 df = pd.DataFrame(data)
